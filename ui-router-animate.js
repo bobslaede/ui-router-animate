@@ -26,7 +26,6 @@ angular.module('uiRouterAnimate', ['ui.router'])
   .directive('routerAnimate', function ($rootScope, routerAnimate) {
     return {
       restrict: 'A',
-      priority: 200,
       link: function (scope, element, attrs) {
         var states = routerAnimate.getStates();
 
@@ -46,9 +45,6 @@ angular.module('uiRouterAnimate', ['ui.router'])
         };
 
         scope.$on('$stateChangeStart', function (e, to, _toParams, from, _fromParams) {
-          if (!element) {
-            return;
-          }
           var direction = getDirection(from.name, to.name);
           element
             .removeClass('forward backward')
