@@ -1,0 +1,47 @@
+nav {
+  width: 240px;
+  margin: 0 auto;
+}
+.viewport {
+  border: 1px solid black;
+  width: 240px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+.viewport .view.ng-enter {
+  transition: all 600ms ease-in;
+  transform: translateX(100%);
+}
+.viewport .view.ng-enter-active {
+  transform: translateX(0);
+}
+.viewport .view.ng-leave {
+  transition: all 600ms ease-in;
+  transform: translateX(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.viewport .view.ng-leave-active {
+  transform: translateX(-100%);
+}
+.viewport.backward .view.ng-enter {
+  transition: all 600ms ease-in;
+  transform: translateX(-100%);
+}
+.viewport.backward .view.ng-enter-active {
+  transform: translateX(0);
+}
+.viewport.backward .view.ng-leave {
+  transition: all 600ms ease-in;
+  transform: translateX(0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.viewport.backward .view.ng-leave-active {
+  transform: translateX(100%);
+}
