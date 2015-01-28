@@ -1,0 +1,35 @@
+
+.animateRouter(@direction) when (@direction = 'forward') {
+  .animateRouter(100);
+}
+
+.animateRouter(@direction) when (@direction = 'backward') {
+  .animateRouter(-100);
+}
+
+.animateRouter(@x) when (isnumber(@x)) {
+  @time: 600ms;
+  @ease: ease-in;
+
+  &.ng-enter {
+    transition: all @time @ease;
+    transform: translateX((@x + 0%));
+  }
+
+  &.ng-enter-active {
+    transform: translateX(0);
+  }
+
+  &.ng-leave {
+    transition: all @time @ease;
+    transform: translateX(0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &.ng-leave-active {
+    transform: translateX((@x * -1) + 0%);
+  }
+}
